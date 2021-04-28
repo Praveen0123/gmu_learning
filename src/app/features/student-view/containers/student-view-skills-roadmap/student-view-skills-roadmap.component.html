@@ -1,0 +1,25 @@
+<!-- AFTER NAV TAB HORIZONTAL LINE AND DOWN ARROW -->
+<section class="grid-y">
+  <div class="arrow">
+    <div class="arrow-down "></div>
+  </div>
+</section>
+
+
+<!-- CONTENT OF SKILLS ROADMAP -->
+
+<ng-container *ngIf="{
+                        occupationProfileModel: occupationProfileModel$ | async,
+                        pathway:pathway$ | async,
+                        skillRoadmap:skillRoadmap$ |async
+                       } as dataOwner">
+
+
+  <gmu-student-view-skill-roadmap-shared [occupationProfileDetails]="dataOwner.occupationProfileModel"
+                                         [skillRoadmap]="dataOwner.skillRoadmap"
+                                         [pathway]="dataOwner.pathway"
+                                         (onAreaOfStudyClick)="onAreaOfStudyClick($event)"
+                                         (onOccupationClick)="onOccupationClick($event)"></gmu-student-view-skill-roadmap-shared>
+
+
+</ng-container>

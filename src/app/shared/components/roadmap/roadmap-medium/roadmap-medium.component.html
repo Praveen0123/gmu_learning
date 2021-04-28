@@ -1,0 +1,144 @@
+<section class="grid-x grid-margin-x grid-padding-x">
+  <!-- Top Skills Description -->
+  <div class="cell">
+    <span *ngIf="isSkillRoadmapVisible  && isCourseViewVisible"> {{topSkillsDescription}}</span>
+  </div>
+
+
+  <!-- ROADMAP -->
+  <div class="cell">
+    <mat-icon class="roadmap"
+              svgIcon="roadmap"></mat-icon>
+  </div>
+
+
+  <!-- YOU ARE QUALIFIED -->
+  <div class="cell">
+    <section class="grid-x grid-medium-x">
+      <div class="cell text-right"
+           *ngIf="isSkillRoadmapVisible && isCourseViewVisible ">
+        <span class="message__label message__label--">You are now qualified for the occupation of</span>
+        <span class="message__label message__label--xxlarge">{{occupationProfileDetails.title}}</span>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- Skills List -->
+  <div class="cell">
+
+    <!-- ROOF TOPS -->
+    <section class="grid-x grid-margin-x align-stretch">
+
+      <!-- YEAR 1: BLUE -->
+      <div class="cell auto">
+
+        <mat-icon class="roof-top"
+                  svgIcon="rooftop-blue"></mat-icon>
+
+      </div>
+
+
+
+      <!-- YEAR 2: GREEN -->
+      <div class="cell auto">
+
+        <mat-icon class="roof-top"
+                  svgIcon="rooftop-green"></mat-icon>
+
+      </div>
+
+
+
+      <!-- YEAR 3: YELLOW -->
+      <div class="cell auto">
+
+        <mat-icon class="roof-top"
+                  svgIcon="rooftop-yellow"></mat-icon>
+
+      </div>
+
+
+
+      <!-- YEAR 4: ORANGE -->
+      <div class="cell auto">
+
+        <mat-icon class="roof-top"
+                  svgIcon="rooftop-orange"></mat-icon>
+
+      </div>
+
+    </section>
+    <section *ngIf="!isSkillRoadmapVisible || isCourseViewVisible">
+      <div class="grid-x grid-margin-x grid-padding-x align-stretch text-center skill-list-container">
+
+        <!-- YEAR 1: BLUE -->
+        <div class="cell auto one">
+          <gmu-skill-list class="year one"
+                          [skillList]="skillListYear1"
+                          (onClickSkill)="openBottomSheet($event)"></gmu-skill-list>
+        </div>
+
+        <!-- YEAR 2: GREEN -->
+        <div class="cell auto two">
+          <gmu-skill-list class="year two"
+                          [skillList]="skillListYear2"
+                          (onClickSkill)="openBottomSheet($event)"></gmu-skill-list>
+        </div>
+
+        <!-- YEAR 3: YELLOW -->
+        <div class="cell auto three">
+          <gmu-skill-list class="year three"
+                          [skillList]="skillListYear3"
+                          (onClickSkill)="openBottomSheet($event)"></gmu-skill-list>
+        </div>
+
+        <!-- YEAR 4: ORANGE -->
+        <div class="cell auto four">
+          <gmu-skill-list class="year four"
+                          [skillList]="skillListYear4"
+                          (onClickSkill)="openBottomSheet($event)"></gmu-skill-list>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section *ngIf="!isCourseViewVisible || isSkillRoadmapVisible">
+      <div class="grid-x grid-margin-x grid-padding-x align-stretch  skill-list-container"
+           *ngIf="pathway">
+
+        <!-- YEAR 1: BLUE -->
+        <div class="cell auto one">
+          <gmu-student-view-skills-roadmap-course [degreeModel]="pathway.associateDegree"></gmu-student-view-skills-roadmap-course>
+        </div>
+
+
+        <!-- YEAR 2: GREEN -->
+        <div class="cell auto two">
+          <gmu-student-view-skills-roadmap-course [degreeModel]="pathway.associateDegree"></gmu-student-view-skills-roadmap-course>
+        </div>
+
+
+        <!-- YEAR 3: YELLOW -->
+        <div class="cell auto three">
+          <gmu-student-view-skills-roadmap-course [degreeModel]="pathway.associateDegree"></gmu-student-view-skills-roadmap-course>
+        </div>
+
+
+        <!-- YEAR 4: ORANGE -->
+        <div class="cell auto four">
+          <gmu-student-view-skills-roadmap-course [degreeModel]="pathway.associateDegree"></gmu-student-view-skills-roadmap-course>
+        </div>
+      </div>
+
+
+
+
+    </section>
+
+  </div>
+
+
+</section>

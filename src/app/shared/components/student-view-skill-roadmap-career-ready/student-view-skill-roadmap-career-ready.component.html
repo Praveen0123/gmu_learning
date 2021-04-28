@@ -1,0 +1,28 @@
+<ng-container *ngFor="let item of skillRoadmap">
+
+  <section class="grid-x grid-margin-x  text-center  align-center-middle">
+
+    <!-- CAREER READY & Description -->
+    <div class="cell">
+      <div class="grid-y grid-margin-y grid-padding-y">
+        <div class="cell">
+          <h1 class="text-career">CAREER READY!</h1>
+          <h3>{{item.careerDescription}}</h3>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- OCCUPATION LIST -->
+    <div class="cell medium-10">
+
+      <gmu-occupation-list-scroll [occupationList]="item.occupationLists"
+                                  [pathway]="pathway"
+                                  (onOccupationClick)="onOccupationClick($event)"
+                                  [isOccupationCardVisible]="false"></gmu-occupation-list-scroll>
+
+    </div>
+
+  </section>
+
+</ng-container>
